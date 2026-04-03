@@ -12,7 +12,7 @@ body{
 .cards{
     display:flex;
     justify-content: start;
-    gap:100px;
+    gap:50px;
     margin:20px;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px ragba(0, 0, 0, 0.1);
@@ -35,6 +35,20 @@ body{
 
 }
 
+.first-row{
+    display:flex;
+    gap: 10px;
+    flex-direction:column;
+}
+
+.time-chart{
+    background: white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    width:800px;
+    
+}
 --ink-black: #001219ff;
 --dark-teal: #005f73ff;
 --dark-cyan: #0a9396ff;

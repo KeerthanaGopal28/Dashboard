@@ -66,3 +66,43 @@ export const categories = [
   "Investment"
 ];
 export const roles = ["viewer", "admin"];
+
+export const getChartData = (transactions) => {
+  const result = {};
+
+  transactions.forEach((t) => {
+    if (!result[t.date]) {
+      result[t.date] = {
+        date: t.date,
+        income: 0,
+        expense: 0
+      };
+    }
+
+    if (t.type === "income") {
+      result[t.date].income += t.amount;
+    } else {
+      result[t.date].expense += t.amount;
+    }
+  });
+
+  return Object.values(result);
+};
+
+export const getCategoryData = (transactions) => {
+  const result = {};
+
+  transactions.forEach((t) => {
+    if (t.type === "expense") {
+      if (!result[t.category]) {
+        result[t.category] = 0;
+      }
+
+      result[t.category] += t.amount;
+    }
+  });
+  return Object.keys(result).map((key) => ({
+    name: key,
+    value: result[key]
+  }));
+};
