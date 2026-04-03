@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header{
+    background-color: rgb(62, 62, 164);
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+}
+.cards{
+    display:flex;
+    justify-content: start;
+    gap:100px;
+    margin:20px;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px ragba(0, 0, 0, 0.1);
+}
+.balance, .income, .expenses {
+    border-left:8px solid rgb(62, 62, 164);
+    padding: 20px;
+    width: 180px;
+    height:fit-content;
+    color:black;
+    border-radius: 15px;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    box-shadow:0 0 5px rgb(62, 62, 164);
+}
+.cards h3, p{
+    margin: 0 0 10px 0;
+
+}
+
+--ink-black: #001219ff;
+--dark-teal: #005f73ff;
+--dark-cyan: #0a9396ff;
+--pearl-aqua: #94d2bdff;
+--vanilla-custard: #e9d8a6ff;
+--golden-orange: #ee9b00ff;
+--burnt-caramel: #ca6702ff;
+--rusty-spice: #bb3e03ff;
+--oxidized-iron: #ae2012ff;
+--brown-red: #9b2226ff;
