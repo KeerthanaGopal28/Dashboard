@@ -49,6 +49,50 @@ body{
     width:800px;
     
 }
+
+.transaction-list{
+    width:500px;  
+    margin:10px; 
+}
+.transaction-list th{
+    background-color: rgb(62, 62, 164);
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size:24px;
+}
+.transaction-list td{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size:18px;
+}
+.transactions{
+    margin:20px;
+    display:flex;
+    flex-direction:column;
+}
+.search-bar{
+    margin:10px;
+    width: 500px;
+    height:20px;
+
+}
+.search-icon{
+    width:20px;
+    height:20px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.search-input{
+    width: 350px;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    border-radius:15px;
+}
+
+
+
 --ink-black: #001219ff;
 --dark-teal: #005f73ff;
 --dark-cyan: #0a9396ff;

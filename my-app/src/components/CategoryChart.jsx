@@ -1,12 +1,12 @@
 import React from 'react';
 import{ PieChart,Pie,Tooltip,Cell} from 'recharts';
-import { transactions } from '../data/data.js';
+import { transactions_data } from '../data/data.js';
 import { getCategoryData } from '../data/data.js';
 
 const COLORS = ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#FF9800"];
 
 const CategoryChart = () => {
-  const data = getCategoryData(transactions);
+  const data = getCategoryData(transactions_data);
   return (
     <div>
        <h2>Spending Breakdown</h2>

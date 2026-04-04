@@ -1,12 +1,12 @@
 import React from 'react';
-import {transactions} from '../data/data.js';
+import {transactions_data} from '../data/data.js';
 
 
 const Cards = () => {
-    const income = transactions
+    const income = transactions_data    
                 .filter(t => t.type === 'income')
                 .reduce((total,t) => total + t.amount, 0)
-    const expense = transactions
+    const expense = transactions_data
                 .filter(t => t.type === 'expense')
                 .reduce((total,t) => total + t.amount, 0)
     const balance = income-expense

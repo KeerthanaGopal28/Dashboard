@@ -1,4 +1,4 @@
-export const transactions = [
+export const transactions_data = [
   {
     id: 1,
     date: "2026-03-01",

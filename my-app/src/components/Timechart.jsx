@@ -8,11 +8,11 @@ import {
   CartesianGrid
 } from "recharts";
 
-import { transactions } from "../data/data.js";
+import { transactions_data } from "../data/data.js";
 import { getChartData } from "../data/data.js";
 
 const TimeChart = () => {
-  const data = getChartData(transactions);
+  const data = getChartData(transactions_data);
 
   return (
     <div className="time-chart">
