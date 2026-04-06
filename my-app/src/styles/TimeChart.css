@@ -1,4 +1,4 @@
-/* TimeChart.css */
+/* TimeChart.css - FULLY RESPONSIVE + 3 TICKS ON MOBILE */
 .time-chart-container {
   background: white;
   border-radius: 24px;
@@ -8,7 +8,7 @@
   position: relative;
   overflow: visible;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box; 
+  box-sizing: border-box;
   max-width: 100%;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .time-chart-container h2 {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 1.5rem;
@@ -49,10 +49,16 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 80px;
+  width: clamp(60px, 10vw, 80px);
   height: 3px;
   background: linear-gradient(90deg, #4CAF50, #10b981);
   border-radius: 2px;
+}
+
+/* ✅ RESPONSIVE CHART HEIGHT */
+.time-chart-container .recharts-responsive-container {
+  width: 100% !important;
+  height: clamp(220px, 35vw, 320px) !important; /* ✅ Perfect mobile height */
 }
 
 /* Line Chart Enhancements */
@@ -63,19 +69,54 @@
 }
 
 .recharts-line {
-  stroke-width: 4px !important;
+  stroke-width: clamp(2px, 4vw, 4px) !important;
   stroke-linecap: round !important;
 }
 
+/* ✅ MOBILE: ONLY 3 TICK LINES */
+@media (max-width: 768px) {
+  /* ✅ Force exactly 3 X-axis ticks */
+  .recharts-x-axis .recharts-cartesian-axis-ticks {
+    display: block !important;
+  }
+  
+  /* Show only first 3 ticks */
+  .recharts-x-axis .recharts-cartesian-axis-ticks:nth-child(n+4) {
+    display: none !important;
+  }
+  
+  /* X-axis labels smaller */
+  .recharts-x-axis .recharts-cartesian-axis-tick text {
+    font-size: clamp(10px, 3vw, 11px) !important;
+    fill: #64748b !important;
+  }
+  
+  /* Thinner line on mobile */
+  .recharts-line {
+    stroke-width: 2.5px !important;
+  }
+}
+
+/* ✅ DESKTOP: Normal ticks */
+@media (min-width: 769px) {
+  .recharts-x-axis .recharts-cartesian-axis-tick text {
+    font-size: clamp(11px, 1.5vw, 12px) !important;
+  }
+}
+
+/* ✅ Compact Tooltip */
 .recharts-tooltip-wrapper {
   border-radius: 16px !important;
   background: linear-gradient(145deg, #1e293b, #334155) !important;
   border: 1px solid #475569 !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
   backdrop-filter: blur(20px) !important;
+  padding: clamp(0.4rem, 2vw, 0.75rem) !important;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem) !important;
+  max-width: 200px !important;
 }
 
-/* Bar Chart Specific */
+/* Bar Chart */
 .balance-trend-container {
   background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
 }
@@ -95,38 +136,32 @@
   filter: drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3));
 }
 
+/* ✅ Axis Lines - Clean */
+.recharts-cartesian-axis-line {
+  stroke: #e5e7eb !important;
+  stroke-width: 1 !important;
+}
+
 /* Empty State */
 .time-chart-container:empty {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 350px;
+  min-height: 300px;
   color: #64748b;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ✅ ULTRA MOBILE */
+@media (max-width: 480px) {
   .time-chart-container {
-    padding: 1.5rem;
+    padding: 1.25rem;
     border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
-}
-.time-chart-container .recharts-responsive-container {
-  width: 100% !important;
-  height: clamp(220px, 30vw, 300px) !important;
-}
-@media (max-width: 768px) {
-  .recharts-line {
-    stroke-width: 2px !important;
-  }
-
-  .recharts-cartesian-axis-tick text {
-    font-size: 10px !important;
-  }
-}
-@media (max-width: 768px) {
-  .time-chart-container {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  
+  /* Ensure 3 ticks */
+  .recharts-x-axis .recharts-cartesian-axis-ticks:nth-child(n+4) {
+    display: none !important;
   }
 }
