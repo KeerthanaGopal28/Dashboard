@@ -81,7 +81,7 @@ const TimeChart = () => {
             </ResponsiveContainer>
           </div>
 
-          {/* NEW: Balance Trend Bar Chart */}
+          {/* Balance Trend Bar Chart */}
           <div style={{height: 220,marginTop:'20px',marginBottom:'30px'}}>
             <h2>Balance Trend</h2>
             <ResponsiveContainer width="100%" height="100%">

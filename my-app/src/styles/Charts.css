@@ -90,15 +90,19 @@ html, body {
   background: linear-gradient(135deg, rgba(255, 99, 132, 0.12), rgba(54, 162, 235, 0.12));
   color: #dc2626;
   border: 1px solid rgba(255, 99, 132, 0.25);
+  border-radius: 12px;
+  padding:5px;
+  text-align: center;
 }
 
 .income-label {
   background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(16, 185, 129, 0.15));
   color: #065f46;
   border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  padding:5px;
+  text-align: center;
 }
-
-/* ✅ Pie Labels */
 .recharts-pie-label-text {
   font-size: clamp(12px, 2.5vw, 16px) !important;
   font-weight: 700 !important;
@@ -106,8 +110,6 @@ html, body {
   text-shadow: none !important;
   font-family: 'Inter', sans-serif !important;
 }
-
-/* ✅ Compact Tooltips */
 .recharts-tooltip-wrapper {
   border-radius: 10px !important;
   background: #1f2937 !important;
@@ -132,7 +134,7 @@ html, body {
   font-weight: 700 !important;
 }
 
-/* ✅ Empty States */
+
 .empty-pie {
   display: flex;
   flex-direction: column;
@@ -150,7 +152,6 @@ html, body {
   opacity: 0.5;
 }
 
-/* ✅ TimeChart */
 .time-chart .recharts-wrapper {
   border-radius: 12px;
   overflow: hidden;
@@ -165,19 +166,17 @@ html, body {
   r: 8px !important;
 }
 
-/* ✅ CLEAN AXIS LINES - All screens */
 .recharts-cartesian-axis-line {
   stroke: #e2e8f0 !important;
   stroke-width: 1 !important;
 }
 
-/* ✅ MOBILE: HIDE X-AXIS LABELS ONLY (Keep Lines) */
 @media (max-width: 768px) {
   .charts-grid {
     gap: 1rem;
   }
   
-  /* ✅ HIDE X-AXIS LABELS/TICKS ONLY */
+
   .recharts-x-axis .recharts-cartesian-axis-ticks text {
     display: none !important;
   }
@@ -187,7 +186,7 @@ html, body {
   }
 }
 
-/* ✅ ULTRA MOBILE */
+
 @media (max-width: 480px) {
   .dual-grid {
     grid-template-columns: 1fr;

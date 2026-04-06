@@ -83,12 +83,31 @@
 
 @media (max-width: 768px) {
   .header-div {
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
+    padding: 1rem;
+    gap: 10px;
+  }
+
+  .header {
+    font-size: 1.2rem;
   }
 
   .toggle-container {
-    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .role-toggle {
+    width: 80px;         
+    height: 34px;
+    font-size: 5px;
+    padding: 0 5px;
+  }
+
+  .toggle-knob {
+    width: 34px;
+    height: 24px;
+  }
+
+  .role-text {
+    font-size: 10px;
   }
 }

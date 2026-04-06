@@ -7,7 +7,7 @@ import '../styles/Insights.css';
 const Insights = () => {
   const [bestMonth, setBestMonth] = useState(null);
 
-  // ✅ FIXED: useMemo prevents re-computation on every render
+  // useMemo prevents re-computation on every render
   const summary = useMemo(() => {
     let income = 0, expense = 0;
     transactions_data.forEach(t => {

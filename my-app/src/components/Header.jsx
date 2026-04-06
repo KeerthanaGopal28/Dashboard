@@ -7,7 +7,7 @@ const Header = ({role, setRole}) => {
 
   return (
     <div className="header-div">
-      <h1 className="header">Dashboard Overview</h1>
+      <h1 className="header">Financial Dashboard</h1>
       <div className="toggle-container">
         <div 
           className={`role-toggle ${isAdmin ? 'admin-mode' : ''}`}
