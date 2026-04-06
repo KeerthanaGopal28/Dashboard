@@ -1,4 +1,8 @@
 /* Charts.css */
+html, body {
+  overflow-x: hidden;
+}
+
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -7,13 +11,11 @@
 }
 
 .chart-container {
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  border: 1px solid #f1f5f9;
-  position: relative;
-  overflow: hidden;
+  background: transparent; /* ✅ Let child components handle background */
+  border-radius: 12px; /* ✅ Let child components handle styling */
+  padding: 0; /* ✅ No padding here */
+  height: 100%;
+  width: 100%;
 }
 
 .chart-container h2 {
@@ -24,6 +26,7 @@
   padding-bottom: 1rem;
   border-bottom: 2px solid #f1f5f9;
 }
+
 
 .time-chart {
   grid-column: span 2;
@@ -57,6 +60,104 @@
   min-height: 300px;
   color: #64748b;
 }
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+}
+
+.charts-grid,
+.dual-grid {
+  width: 100%;
+  max-width: 100%;
+}
+
+.dual-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  height: 420px; /* ✅ Slightly taller for labels */
+  position: relative;
+  width: 100%;
+}
+
+.pie-wrapper {
+  position: relative;
+  background: linear-gradient(145deg, #fafbfc 0%, #f5f7fa 100%);
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem 1.5rem; /* ✅ More top padding for labels */
+  border: 1px solid #e2e8f0;
+  height: 100%; /* ✅ Full height */
+  display: flex;
+  flex-direction: column;
+}
+
+.pie-label {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem; /* ✅ Better positioning */
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  font-family: 'Inter', sans-serif;
+  z-index: 10;
+}
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phone */
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.income-label {
+  left: 1.5rem; /* ✅ Same left positioning as expense */
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(16, 185, 129, 0.2));
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  text-align:center;
+  border-radius: 10px;
+}
+
+.expense-label {
+  left: 1.5rem; /* ✅ Same left positioning as expense */
+  background: linear-gradient(135deg, rgba(175, 104, 76, 0.2), rgba(191, 19, 19, 0.2));
+  color: #065f46;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  text-align:center;
+  border-radius: 10px;;
+}
+
+.empty-pie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px; /* ✅ Match ResponsiveContainer height */
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+
 
 /* Responsive */
 @media (max-width: 1024px) {

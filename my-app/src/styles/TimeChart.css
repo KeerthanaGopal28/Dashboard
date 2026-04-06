@@ -1,0 +1,112 @@
+/* TimeChart.css */
+.time-chart-container {
+  background: white;
+  border-radius: 24px;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.time-chart-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 50px -15px rgba(0, 0, 0, 0.2);
+}
+
+.time-chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4CAF50, #10b981, #f44336, #ef4444);
+  background-size: 300% 100%;
+  animation: trendShift 3s ease infinite;
+}
+
+@keyframes trendShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.time-chart-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+  position: relative;
+}
+
+.time-chart-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #4CAF50, #10b981);
+  border-radius: 2px;
+}
+
+/* Line Chart Enhancements */
+.time-chart-container .recharts-wrapper {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+   overflow: visible;
+}
+
+.recharts-line {
+  stroke-width: 4px !important;
+  stroke-linecap: round !important;
+}
+
+.recharts-tooltip-wrapper {
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #1e293b, #334155) !important;
+  border: 1px solid #475569 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* Bar Chart Specific */
+.balance-trend-container {
+  background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.balance-trend-container .recharts-bar {
+  rx: 6px !important;
+  ry: 6px !important;
+}
+
+.recharts-bar-positive {
+  fill: #10b981 !important;
+  filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.3));
+}
+
+.recharts-bar-negative {
+  fill: #ef4444 !important;
+  filter: drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3));
+}
+
+/* Empty State */
+.time-chart-container:empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 350px;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .time-chart-container {
+    padding: 1.5rem;
+  }
+}

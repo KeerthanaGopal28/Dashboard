@@ -44,7 +44,7 @@ const Cards = () => {
             <p>₹{expense} 📉</p>
         </div>
        </div>
-       )};
+       )}
     </div>
 )
 };
