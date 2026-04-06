@@ -44,7 +44,7 @@ const Insights = () => {
     return monthly;
   }, []);
 
-  // ✅ FIXED: Proper dependency array
+  // Proper dependency array
   const trendData = useMemo(() => {
     return Object.entries(monthlyData)
       .sort(([a], [b]) => a.localeCompare(b))
@@ -55,7 +55,7 @@ const Insights = () => {
       }));
   }, [monthlyData]);
 
-  // ✅ FIXED: Stable dependency
+  // Stable dependency
   useEffect(() => {
     const best = Object.entries(monthlyData).reduce((best, [month, data]) => 
       data.balance > (best?.[1]?.balance || -Infinity) ? [month, data] : best, null
@@ -138,7 +138,7 @@ const Insights = () => {
         )}
       </div>
 
-      {/* NEW: Pie Chart */}
+      {/* Pie Chart */}
       <div className="insights-card">
         <div className="card-header">
           <div className="card-icon">🧀</div>
@@ -164,7 +164,7 @@ const Insights = () => {
         </div>
       </div>
 
-      {/* NEW: Bar Chart */}
+      {/*Bar Chart */}
       <div className="insights-card">
         <div className="card-header">
           <div className="card-icon">📈</div>
@@ -182,7 +182,7 @@ const Insights = () => {
         </div>
       </div>
 
-      {/* NEW: Goal Tracker */}
+      {/* Goal Tracker */}
       <div className="insights-card">
         <div className="card-header">
           <div className="card-icon">🎯</div>
@@ -197,7 +197,7 @@ const Insights = () => {
         </div>
       </div>
 
-      {/* NEW: Spending IQ */}
+      {/* Spending IQ */}
       <div className="insights-card">
         <div className="card-header">
           <div className="card-icon">🧠</div>
