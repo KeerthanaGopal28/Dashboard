@@ -5,9 +5,9 @@ function Sidebar() {
   const location = useLocation();
   
   const navItems = [
-    { to: "/", label: "Dashboard", icon: "📊" },
-    { to: "/transactions", label: "Transactions", icon: "💳" },
-    { to: "/insights", label: "Insights", icon: "📈" }
+    { to: "/", label: "Dashboard"},
+    { to: "/transactions", label: "Transactions"},
+    { to: "/insights", label: "Insights"}
   ];
 
   return (
@@ -18,7 +18,6 @@ function Sidebar() {
           to={item.to}
           className={`sidebar-link ${location.pathname === item.to ? 'active' : ''}`}
         >
-          <span className="sidebar-icon">{item.icon}</span>
           {item.label}
         </Link>
       ))}
