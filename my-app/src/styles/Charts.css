@@ -199,4 +199,45 @@ html, body {
   .recharts-x-axis {
     display: none !important;
   }
+}/* ✅ MOBILE: Hide X-axis LABELS ONLY, Keep Lines */
+@media (max-width: 768px) {
+  .charts-grid {
+    gap: 1rem;
+  }
+  
+  /* ✅ HIDE X-AXIS LABELS/TICKS ONLY */
+  .recharts-x-axis .recharts-cartesian-axis-ticks text {
+    display: none !important;
+  }
+  
+  /* ✅ KEEP X-AXIS LINE */
+  .recharts-x-axis .recharts-cartesian-axis-line {
+    display: block !important;
+    stroke: #e2e8f0 !important;
+    stroke-width: 1 !important;
+  }
+  
+  /* ✅ Y-AXIS LINE VISIBLE */
+  .recharts-y-axis .recharts-cartesian-axis-line {
+    stroke: #e2e8f0 !important;
+    stroke-width: 1 !important;
+  }
+  
+  .dual-grid {
+    height: 340px;
+  }
+}
+
+/* ✅ ULTRA MOBILE */
+@media (max-width: 480px) {
+  .dual-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    height: auto;
+  }
+  
+  /* Same X-axis label hiding */
+  .recharts-x-axis .recharts-cartesian-axis-ticks text {
+    display: none !important;
+  }
 }
