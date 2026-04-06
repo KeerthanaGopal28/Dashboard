@@ -1,0 +1,80 @@
+/* Charts.css */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.time-chart {
+  grid-column: span 2;
+}
+
+.time-chart .recharts-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Recharts customizations */
+.recharts-tooltip-wrapper {
+  border-radius: 12px !important;
+}
+
+.recharts-line {
+  stroke-width: 3px !important;
+}
+
+.recharts-active-dot {
+  r: 8px !important;
+}
+
+/* Empty state */
+.chart-container:empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .time-chart {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 1.5rem;
+  }
+  
+  .chart-container h2 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,11 +1,24 @@
-import React from 'react'
+import { useOutletContext } from "react-router-dom";
+import '../styles/Header.css';
 
-const Header = () => {
+const Header = ({role, setRole}) => {
+  const isAdmin = role === "admin";
+  const toggleRole = () => setRole(isAdmin ? "viewer" : "admin");
+
   return (
-    <div>
-        <h1 className="header">Dashboard Overview</h1>
+    <div className="header-div">
+      <h1 className="header">Dashboard Overview</h1>
+      <div className="toggle-container">
+        <div 
+          className={`role-toggle ${isAdmin ? 'admin-mode' : ''}`}
+          onClick={toggleRole}
+        >
+          <span className="role-text">{isAdmin ? "Admin" : "Viewer"}</span>
+          <div className="toggle-knob"></div>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default Header
+export default Header;

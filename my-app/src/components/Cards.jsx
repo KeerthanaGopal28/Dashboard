@@ -1,5 +1,6 @@
 import React from 'react';
 import {transactions_data} from '../data/data.js';
+import money from '../assets/money.png';
 
 
 const Cards = () => {
@@ -13,22 +14,39 @@ const Cards = () => {
 
   return (
     <div>
-       <div className="cards">
+       {transactions_data.length === 0 ? (
+          <div className="cards">
         <div className='balance'>
             <h3>Total Balance</h3>
-            <p>{balance}</p>
+            <p> -- </p>
         </div>
         <div className='income'>
             <h3>Income</h3>
-            <p>{income}</p>
+            <p> -- </p>
         </div>
         <div className='expenses'>
             <h3>Expense</h3>
-            <p>{expense}</p>
+            <p> -- </p>
         </div>
        </div>
+       ) : (
+       <div className="cards">
+        <div className='balance'>
+            <h3>Total Balance</h3>
+            <p>₹{balance} 💵</p>
+        </div>
+        <div className='income'>
+            <h3>Income</h3>
+            <p>₹{income} 📈</p>
+        </div>
+        <div className='expenses'>
+            <h3>Expense</h3>
+            <p>₹{expense} 📉</p>
+        </div>
+       </div>
+       )};
     </div>
-  )
-}
+)
+};
 
 export default Cards

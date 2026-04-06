@@ -1,0 +1,243 @@
+/* Insights.css */
+.insights-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+.insights-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.insights-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.2);
+}
+
+.insights-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b, #ef4444);
+  background-size: 300% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.balance-card .card-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.spending-card .card-icon {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.monthly-card .card-icon {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.insight-number {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.balance-number {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spending-number {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.insight-label {
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.monthly-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.monthly-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.monthly-item:hover {
+  background: #e2e8f0;
+  border-left-color: #3b82f6;
+  transform: translateX(4px);
+}
+
+.monthly-item.best {
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: white;
+  border-left-color: #10b981;
+}
+
+.monthly-item.best:hover {
+  background: linear-gradient(90deg, #059669, #047857);
+}
+
+.monthly-label {
+  font-weight: 600;
+}
+
+.monthly-numbers {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.monthly-income {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.monthly-expense {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 4px;
+  transition: width 1.5s ease-out;
+  animation: progressFill 2s ease-out;
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: var(--progress-width); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .insights-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .insights-card {
+    padding: 1.5rem;
+  }
+  
+  .insight-number {
+    font-size: 2.25rem;
+  }
+}
+.insights-card svg {
+  border-radius: 12px !important;
+}
+
+.recharts-pie-label-text {
+  font-weight: 600;
+  font-size: 12px;
+  fill: #1e293b;
+}
+
+/* Goal specific */
+.goal-card .progress-fill {
+  background: linear-gradient(90deg, #f59e0b, #d97706) !important;
+}
+
+/* Pattern card */
+.pattern-score {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.good-habits {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.needs-work {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}

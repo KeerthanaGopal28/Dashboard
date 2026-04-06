@@ -1,14 +1,16 @@
 import React from 'react'
 import {transactions_data} from '../data/data.js';
 import search_img from '../assets/search.png';
+import EmptyState from './EmptyState.jsx';
+import '../styles/TransactionTable.css';
 
-const TransactionTable = () => {
+const TransactionTable = ({role}) => {
   const data = transactions_data;
   const [transactions,setTransactions] = React.useState(data);
   const [search,setSearch] = React.useState('');
   const [typeFilter,setTypeFilter] = React.useState('All');
   //const [sortBy,setSortBy] = React.useState('date');
-  const [formData,setFormData] = React.useState({date:'',amount:'',category:'',type:''});
+  const [formData,setFormData] = React.useState({date:'',amount:'',category:'',type:'expense'});
   const [editId,setEditId] = React.useState(null);
 
   const filteredTransactions = transactions.filter((t) => {
@@ -23,7 +25,11 @@ const TransactionTable = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
+    if (!formData.date || !formData.amount || !formData.category || !formData.type) {
+      alert("Please fill all fields");
+      return;
+    }
     if(editId){
       const updated = transactions.map((t) => t.id === editId ? {...t,...formData} : t);
       setTransactions(updated);
@@ -59,6 +65,17 @@ const TransactionTable = () => {
           <option value='income'>Income</option>
           <option value='expense'>Expenses</option>
         </select>
+
+        {role === "admin" && (<form onSubmit={handleSubmit} className='transaction-form'>
+          <input type="date" name="date" value={formData.date} onChange={handleChange}/>
+          <input type="number" name="amount" placeholder="Amount" value={formData.amount} onChange={handleChange}/>
+          <input type="text" name="category" placeholder="Category" value={formData.category} onChange={handleChange}/>
+          <select name="type" value={formData.type} onChange={handleChange}>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+          <button type="submit">{editId?"Update":"Add"}</button>
+        </form>)}
       </div>
       <div className='transactions-list-div'>
       <table className='transaction-list'>
@@ -68,17 +85,30 @@ const TransactionTable = () => {
             <th>Amount</th>
             <th>Category</th>
             <th>Type</th>
+            {role === "admin" && (<th>Edit</th>)}
             </tr>
         </thead>
         <tbody>
-        {filteredTransactions.map((t) => (
-            <tr key={t.id}>
-                <td>{t.date}</td>
-                <td>{t.amount}</td>
-                <td>{t.category}</td>
-                <td>{t.type}</td>
-            </tr>
-        ))}
+         {filteredTransactions.length === 0 ? (
+          <tr>
+            <td colSpan={role === "admin" ? 5 : 4} style={{textAlign:'center'}}><EmptyState message="No transactions yet." /></td>
+          </tr>
+         ) : (
+        filteredTransactions.map((t) => (
+
+           <tr key={t.id}>
+              <td>{t.date}</td>
+              <td className={`amount-${t.type}`}>{t.amount}</td>
+              <td>{t.category}</td>
+               <td><span className={`type-badge type-${t.type}`}>{t.type}</span></td>
+              {role === "admin" && (
+              <td>
+                  <button onClick={() => handleEdit(t)}>Edit</button>
+              </td>
+          )}
+          </tr>
+        ))
+      )}
         </tbody>
       </table>
       </div>

@@ -106,3 +106,4 @@ export const getCategoryData = (transactions) => {
     value: result[key]
   }));
 };
+

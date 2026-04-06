@@ -1,19 +1,22 @@
-import Header from './components/Header.jsx';
-import Cards from './components/Cards.jsx';
-import TimeChart from './components/Timechart.jsx';
-import CategoryChart from './components/CategoryChart.jsx';
-import TransactionTable from './components/TransactionTable.jsx';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from './pages/Dashboard.jsx';
+import Layout from './Layout.jsx';
+import Transaction from './pages/Transaction.jsx';
+import Insights from './components/Insights.jsx';
 
 function App() {
   return (
     <>
-      <Header/>
-      <div className='first-row'>
-        <Cards/>
-        <TimeChart/>
-        <CategoryChart/>
-      </div>
-      <TransactionTable/>         
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="transactions" element={<Transaction/>} />
+          <Route path="insights" element={<Insights />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
