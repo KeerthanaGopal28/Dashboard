@@ -6,8 +6,10 @@
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   border: 1px solid #f1f5f9;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box; 
+  max-width: 100%;
 }
 
 .time-chart-container:hover {
@@ -56,9 +58,8 @@
 /* Line Chart Enhancements */
 .time-chart-container .recharts-wrapper {
   border-radius: 20px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-   overflow: visible;
 }
 
 .recharts-line {
@@ -108,5 +109,24 @@
 @media (max-width: 768px) {
   .time-chart-container {
     padding: 1.5rem;
+    border-radius: 16px;
+  }
+}
+.time-chart-container .recharts-responsive-container {
+  width: 100% !important;
+  height: clamp(220px, 30vw, 300px) !important;
+}
+@media (max-width: 768px) {
+  .recharts-line {
+    stroke-width: 2px !important;
+  }
+
+  .recharts-cartesian-axis-tick text {
+    font-size: 10px !important;
+  }
+}
+@media (max-width: 768px) {
+  .time-chart-container {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 }

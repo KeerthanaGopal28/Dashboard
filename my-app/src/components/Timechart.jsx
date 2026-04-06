@@ -64,7 +64,7 @@ const TimeChart = () => {
             <h2>Balance Trend</h2>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={balanceData}  margin={{ top: 10, right: 20, left: 0, bottom: 30 }}>
-                <XAxis dataKey="date" tickLine={false} tick={{fontSize: 15, fontWeight: '600'}} interval={0}/>
+                <XAxis dataKey="date" tickLine={false} tick={{fontSize: 15, fontWeight: '600'}} interval="preserveStartEnd" tickCount={5}   angle={-30}/>
                 <YAxis tickLine={false} tick={{fontSize: 15, fontWeight: '600'}}/>
                 <Tooltip
                   contentStyle={{
