@@ -181,3 +181,22 @@ html, body {
     padding: 0.3rem 0.6rem !important;
   }
 }
+
+@media (max-width: 768px) {
+  .recharts-cartesian-axis-ticks text {
+    display: none !important;
+  }
+
+  .recharts-cartesian-axis-line {
+    display: none !important;
+  }
+  
+  .recharts-x-axis {
+    display: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .recharts-x-axis {
+    display: none !important;
+  }
+}
